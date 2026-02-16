@@ -127,6 +127,14 @@ struct ConnectPage: View {
                             TextField ("Room ID", text: $roomCode)
                             Button("Join.."){
                                 roomId.roomID = roomCode
+                                senders.senders = Sender(
+                                       name: userStore.users?.name ?? "Anonymous",
+                                       senderId: senderId,
+                                       content: "",
+                                       isHost: true,
+                                       roomId: roomId.roomID ?? ""
+                                   )
+                                
                                 isJoinRoom = true
                             }
                         }

@@ -13,7 +13,7 @@ struct ChatView: View {
     @State var showMessage:Bool = false
 
     var body: some View {
-        NavigationStack {
+   
             ZStack{
                 Image("back1")
                     .resizable()
@@ -68,31 +68,14 @@ struct ChatView: View {
                     }
                 }
                 .padding(30)
-                .navigationTitle("Chat")
-                .navigationBarTitleDisplayMode(.automatic)
-                .toolbar {
-                    ToolbarItem(placement:.navigationBarTrailing ){
-                        Text(" Room ID:\( rooID.roomID ?? "NO ROOM")")
-                            
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        
-                        NavigationLink(destination: Login()) {
-                            
-                            Image(systemName: "rectangle.portrait.and.arrow.right")
-                        }
-                    }
-                    
-                    
-                    
-                    
-                }
+              
                 .navigationDestination(isPresented: $showMessage) {
                     MessageView()
                 }
+                
             }
         }
-    }
+    
 }
 
 #Preview {

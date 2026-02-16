@@ -11,7 +11,7 @@ import SwiftUI
 
 struct MessageView: View {
     let a = [2,3,4]
-    
+    @Environment(\.dismiss) private var dismiss
     @State private var messageText: String = ""
     
     var body: some View {
@@ -51,6 +51,27 @@ struct MessageView: View {
             }
             .padding()
         }
+        .navigationTitle(Text("Chat"))
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading){
+                Button{
+                    dismiss()
+                    
+                }label:{
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 35, height: 35)
+                        .cornerRadius(50)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbarBackground(Color.green, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        
+       
     }
     }
 #Preview {

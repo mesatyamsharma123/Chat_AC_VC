@@ -18,11 +18,14 @@ struct ChatBubble: View {
             VStack(alignment: isMe ? .trailing : .leading){
                 
                 if !isMe {
+                    Text("satyam")
+                        .opacity(0.4)
                     Text("sdsdas")
                         .font(.caption2)
                         .foregroundStyle(Color(.secondaryLabel))
                 }
-                
+//                Text("satyam")
+//                    .opacity(0.4)
                 Text("satyama")
                     .padding(10)
                     .background(isMe ? Color.blue : Color(.systemGray5))
