@@ -51,21 +51,10 @@ struct ConnectPage: View {
                                 loadingState = .loading
                             }
                             
-                            
-                            
-                            
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 loadingState = .success
                                 isConnected.toggle()
-                                
-                                
-                                
-                                
                             }
-                            
-                            
-                            
-                            
                         }
                         
                     }

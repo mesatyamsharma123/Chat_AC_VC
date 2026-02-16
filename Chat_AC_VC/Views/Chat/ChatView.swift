@@ -24,7 +24,6 @@ struct ChatView: View {
                     .resizable()
                     .scaledToFill()
                 
-                
                 VStack{
                     
                     VStack (spacing : 20) {
@@ -43,7 +42,7 @@ struct ChatView: View {
                             .font(.system(size: 20))
                         
                         
-                        LazyVGrid(columns: columns, spacing: 10) { // 👈 vertical gap control
+                        LazyVGrid(columns: columns, spacing: 10) { 
                             ForEach(a, id: \.self) { item in
                                 Text(item)
                                     .font(.system(size: 22))

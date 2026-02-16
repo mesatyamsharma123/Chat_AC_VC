@@ -22,5 +22,6 @@ struct  Sender: Codable ,Identifiable{
     let content:String
     let time:Date
     let rommId:String
-    
 }
+
+

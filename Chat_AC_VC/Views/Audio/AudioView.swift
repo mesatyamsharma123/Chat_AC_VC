@@ -46,7 +46,7 @@ struct AudioView: View {
                         
                         
                         
-                        LazyVGrid(columns: columns, spacing: 10) { // 👈 vertical gap control
+                        LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(a, id: \.self) { item in
                                 Text(item)
                                     .font(.system(size: 22))
