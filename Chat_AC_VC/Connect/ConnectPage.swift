@@ -93,7 +93,17 @@ struct ConnectPage: View {
                         VStack(spacing: 16) {
                             Button ("Create room"){
                                 roomId.roomID = "\(Int.random(in : 9999...99999))"
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 isCreate = true
+                                
                                 
                             }
                             .buttonStyle(.borderedProminent)

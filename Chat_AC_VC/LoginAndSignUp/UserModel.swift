@@ -20,7 +20,7 @@ struct  Sender: Codable ,Identifiable{
     let name:String
     let senderId:UUID
     let content:String
-    let time:Date
+    let isHost:Bool
     let rommId:String
     
 }
