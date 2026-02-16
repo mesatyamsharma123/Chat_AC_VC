@@ -1,5 +1,3 @@
-
-
 import Foundation
 import SwiftUI
 
@@ -11,9 +9,11 @@ struct ChatView: View {
     ]
     @EnvironmentObject var rooID:RoomId
     @EnvironmentObject var senders:Senders
+    
+    @State var showMessage:Bool = false
 
     var body: some View {
-     
+        NavigationStack {
             ZStack{
                 Image("back1")
                     .resizable()
@@ -56,6 +56,7 @@ struct ChatView: View {
                         Button ("Start a chat"){
                             senders.senders?.content = "hello"
                             print(senders.senders?.content ?? "no")
+                            showMessage = true
                             
                             
                         }
@@ -86,9 +87,13 @@ struct ChatView: View {
                     
                     
                 }
+                .navigationDestination(isPresented: $showMessage) {
+                    MessageView()
+                }
             }
         }
     }
+}
 
 #Preview {
     ChatView()
