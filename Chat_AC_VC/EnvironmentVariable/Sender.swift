@@ -7,8 +7,10 @@
 
 import Foundation
 
+
 import Combine
+
 class Senders: ObservableObject {
-    @Published var senders: Senders? = nil
+    @Published var senders: Sender? = nil
     
 }

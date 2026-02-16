@@ -18,9 +18,9 @@ struct UserModel : Codable, Identifiable {
 struct  Sender: Codable ,Identifiable{
     var id:UUID = UUID()
     let name:String
-    let senderId:UUID
-    let content:String
+    let senderId:String
+    var content:String
     let isHost:Bool
-    let rommId:String
+    let roomId:String
     
 }

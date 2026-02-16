@@ -10,7 +10,7 @@ struct ChatView: View {
         GridItem(.fixed(150), spacing: 10)
     ]
     @EnvironmentObject var rooID:RoomId
-    
+    @EnvironmentObject var senders:Senders
 
     var body: some View {
      
@@ -54,6 +54,9 @@ struct ChatView: View {
                         
                         
                         Button ("Start a chat"){
+                            senders.senders?.content = "hello"
+                            print(senders.senders?.content ?? "no")
+                            
                             
                         }
                         .font(.system(size: 35))
@@ -90,4 +93,5 @@ struct ChatView: View {
 #Preview {
     ChatView()
         .environmentObject(RoomId())
+        .environmentObject(Senders())
 }

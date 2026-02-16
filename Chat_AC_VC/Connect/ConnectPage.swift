@@ -11,6 +11,7 @@ enum LoadingState  {
 struct ConnectPage: View {
     @EnvironmentObject var userStore: UserStore
     @EnvironmentObject var roomId: RoomId
+    @EnvironmentObject var senders: Senders
     
     @State var isConnected: Bool = false
     
@@ -19,6 +20,7 @@ struct ConnectPage: View {
     
     
     @State var roomCode: String = ""
+    let senderId: String = UUID().uuidString
     
     private var name: String { userStore.users?.name ?? "No Name" }
     private var stateOfConnect: String { isConnected ? "Connected" : "Disconnected plz connect " }
@@ -84,8 +86,7 @@ struct ConnectPage: View {
                         .frame(width: 200, height: 200)
                         .background(.ultraThinMaterial)
                         .cornerRadius(10)
-                        //                    .opacity(isConnected ? 1 : 0)
-                        //                    .scaleEffect(isConnected ? 1:0)
+                      
                         .animation(.easeInOut, value: isConnected)
                         Spacer()
                     }
@@ -94,12 +95,14 @@ struct ConnectPage: View {
                             Button ("Create room"){
                                 roomId.roomID = "\(Int.random(in : 9999...99999))"
                                 
-                                
-                                
-                                
-                                
-                                
-                                
+                                senders.senders = Sender(
+                                       name: userStore.users?.name ?? "Anonymous",
+                                       senderId: senderId,
+                                       content: "",
+                                       isHost: true,
+                                       roomId: roomId.roomID ?? ""
+                                   )
+
                                 
                                 
                                 isCreate = true
@@ -155,4 +158,6 @@ struct ConnectPage: View {
     ConnectPage()
         .environmentObject(UserStore())
         .environmentObject(RoomId())
+        .environmentObject(Senders())
 }
+
