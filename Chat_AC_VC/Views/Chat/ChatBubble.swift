@@ -23,7 +23,7 @@ struct ChatBubble: View {
                         .foregroundStyle(Color(.secondaryLabel))
                 }
                 
-                Text("dsada")
+                Text("satyama")
                     .padding(10)
                     .background(isMe ? Color.blue : Color(.systemGray5))
                     .foregroundColor(isMe ? .white : .primary)
