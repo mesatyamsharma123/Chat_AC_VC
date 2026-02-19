@@ -17,7 +17,7 @@ struct Login: View {
     @State private var password = ""
 
     private func login() {
-        guard !name.isEmpty, !email.isEmpty, !password.isEmpty else { return }
+//        guard !name.isEmpty, !email.isEmpty, !password.isEmpty else { return }
 
         userStore.users = UserModel(
             name: name,

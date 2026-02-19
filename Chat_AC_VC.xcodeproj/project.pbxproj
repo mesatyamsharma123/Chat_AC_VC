@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E67C09BA2F46354700800042 /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = E67C09B92F46354700800042 /* WebRTC */; };
+		E67C09BC2F46354C00800042 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = E67C09BB2F46354C00800042 /* SocketIO */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E631B68F2F40359E0081827A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E67C09BA2F46354700800042 /* WebRTC in Frameworks */,
+				E67C09BC2F46354C00800042 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,7 @@
 				E631B6832F40359D0081827A /* Chat_AC_VC */,
 				E631B6912F40359E0081827A /* Chat_AC_VCTests */,
 				E631B69B2F40359E0081827A /* Chat_AC_VCUITests */,
+				E67C09B82F46354700800042 /* Frameworks */,
 				E631B6822F40359D0081827A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +98,13 @@
 				E631B6982F40359E0081827A /* Chat_AC_VCUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E67C09B82F46354700800042 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +127,8 @@
 			);
 			name = Chat_AC_VC;
 			packageProductDependencies = (
+				E67C09B92F46354700800042 /* WebRTC */,
+				E67C09BB2F46354C00800042 /* SocketIO */,
 			);
 			productName = Chat_AC_VC;
 			productReference = E631B6812F40359D0081827A /* Chat_AC_VC.app */;
@@ -195,6 +212,10 @@
 			);
 			mainGroup = E631B6782F40359D0081827A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E67C09B62F46352C00800042 /* XCRemoteSwiftPackageReference "socket" */,
+				E67C09B72F46354000800042 /* XCRemoteSwiftPackageReference "WebRTC" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E631B6822F40359D0081827A /* Products */;
 			projectDirPath = "";
@@ -398,11 +419,14 @@
 				DEVELOPMENT_TEAM = 5R3969ST9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access for video calling.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access for audio and video calls.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -430,11 +454,14 @@
 				DEVELOPMENT_TEAM = 5R3969ST9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access for video calling.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access for audio and video calls.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +599,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E67C09B62F46352C00800042 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		E67C09B72F46354000800042 /* XCRemoteSwiftPackageReference "WebRTC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stasel/WebRTC.git";
+			requirement = {
+				kind = exactVersion;
+				version = 114.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E67C09B92F46354700800042 /* WebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E67C09B72F46354000800042 /* XCRemoteSwiftPackageReference "WebRTC" */;
+			productName = WebRTC;
+		};
+		E67C09BB2F46354C00800042 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E67C09B62F46352C00800042 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E631B6792F40359D0081827A /* Project object */;
 }

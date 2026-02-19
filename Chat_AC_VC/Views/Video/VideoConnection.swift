@@ -1,18 +1,32 @@
-//
-//  VideoConnection.swift
-//  Chat_AC_VC
-//
-//  Created by Satyam Sharma Chingari on 19/02/26.
-//
-
 import SwiftUI
 
 struct VideoConnection: View {
+    @StateObject var socketManager = AppSocketManager.shared
+    @EnvironmentObject var senders: Senders
+    
+    let columns = [
+        GridItem(.fixed(150), spacing: 15),
+        GridItem(.fixed(150), spacing: 15)
+    ]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 20) {
+                // 1. Aapki apni video (Local)
+                VideoCard(
+                    track: WebRTCManager.shared.localVideoTrack,
+                    name: "You (Host)"
+                )
+                
+                // 2. Dusre logon ki video (Remote)
+                ForEach(socketManager.videoUsers.filter { $0.senderId != senders.senders?.senderId }, id: \.senderId) { user in
+                    VideoCard(
+                        track: WebRTCManager.shared.remoteTracks[user.senderId],
+                        name: user.name
+                    )
+                }
+            }
+            .padding()
+        }
     }
-}
-
-#Preview {
-    VideoConnection()
 }

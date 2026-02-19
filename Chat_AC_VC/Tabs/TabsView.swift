@@ -36,7 +36,7 @@ struct TabsView: View {
                 }
                 .tag(1)
             
-            VideoView()
+            VideoViews()
                 .tabItem {
                     Label("Video", systemImage: "video")
                 }

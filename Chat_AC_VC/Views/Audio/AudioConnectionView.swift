@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct AudioConnectionView: View {
+    var body: some View {
+        Text("AudioConnectionView")
+    }
+}
