@@ -91,17 +91,21 @@ struct VideoViews: View {
             .padding(40)
         }
         .onAppear {
-            
             webRTC.checkPermissions()
             
             if let me = senders.senders {
                 socketManager.currentSender = me
                 
+                // ❌ Is "join" ki wajah se server confusion ho sakti hai agar ye
+                // sirf room join karne ke liye hai. Ensure karein ki ye socket connection establish kar raha hai.
                 socketManager.socket.emit("join", [
                     "roomId": me.roomId,
                     "senderId": me.senderId,
                     "name": me.name
                 ])
+                
+                // ✅ Pre-setup local stream taaki jab call join ho, camera ready ho
+                webRTC.setupLocalStream()
             }
         }
         .fullScreenCover(isPresented: $socketManager.isInVideo) {

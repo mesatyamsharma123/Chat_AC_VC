@@ -15,27 +15,28 @@ struct Chat_AC_VCApp: App {
 
     var body: some Scene {
         WindowGroup {
-            
-            Group {
-                if appState.showSplash {
-                    SplashScreen()
-                } else {
-                   
-                    if appState.isLoggedIn {
-                        NavigationStack {
-                            ConnectPage()
-                        }
-                    } else {
-                        NavigationStack {
-                            Login()
-                        }
-                    }
-                }
-            }
-            .environmentObject(appState)
-            .environmentObject(roomId)
-            .environmentObject(userStore)
-            .environmentObject(senders)
+//            
+//            Group {
+//                if appState.showSplash {
+//                    SplashScreen()
+//                } else {
+//                   
+//                    if appState.isLoggedIn {
+//                        NavigationStack {
+//                            ConnectPage()
+//                        }
+//                    } else {
+//                        NavigationStack {
+//                            Login()
+//                        }
+//                    }
+//                }
+//            }
+//            .environmentObject(appState)
+//            .environmentObject(roomId)
+//            .environmentObject(userStore)
+//            .environmentObject(senders)
+            LoginView()
         }
     }
 

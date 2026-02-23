@@ -177,7 +177,7 @@ struct ConnectPage: View {
     @EnvironmentObject var senders: Senders
     
     // 🔌 Socket Manager ko observe karein
-    @StateObject var socketManager = AppSocketManager.shared
+    @ObservedObject var socketManager = AppSocketManager.shared
     
     @State var isCreate : Bool = false
     @State var isJoin : Bool = false

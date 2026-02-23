@@ -12,13 +12,13 @@ struct VideoConnection: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 20) {
-                // 1. Aapki apni video (Local)
+            
                 VideoCard(
                     track: WebRTCManager.shared.localVideoTrack,
                     name: "You (Host)"
                 )
                 
-                // 2. Dusre logon ki video (Remote)
+             
                 ForEach(socketManager.videoUsers.filter { $0.senderId != senders.senders?.senderId }, id: \.senderId) { user in
                     VideoCard(
                         track: WebRTCManager.shared.remoteTracks[user.senderId],
